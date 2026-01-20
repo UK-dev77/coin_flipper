@@ -1,0 +1,105 @@
+body{
+  background-color: coral;
+}
+
+.coin {
+  width: 25dvw;
+  height: 50dvh;
+  position: relative;
+  left: 35%;
+  transform-style: preserve-3d;
+  transition: transform 1.3s;
+  /* border: 1px solid black; */
+
+}
+
+.head, .tail{
+    position: absolute;
+    left: 20%;
+    top: 15%;
+    width: 15dvw;
+    height: 30dvh;
+    border: 1px solid black;
+    border-radius:50%;
+    /* text-align: center; */
+    font-size: xx-large;
+    background-color: aqua;
+    color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+
+}
+
+.head {
+  background: red;
+  color: white;
+}
+
+.tail {
+  background: yellow;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+/* .head:hover{
+    background-color: red;
+    transition: 1s;
+} */
+
+/* .tail{
+    position: absolute;
+    width: 25dvw;
+    height: 50dvh;
+    left: 20%;
+    top: 15%;
+    border: 1px solid black;
+    border-radius:50%;
+    /* text-align: center; */
+    /* font-size: xx-large;
+    background-color: aqua;
+    color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    backface-visibility: hidden;
+    transform: rotateY('180deg');
+
+
+} */ 
+
+#btn{
+    width: 10dvw;
+    height: 5dvh;
+    position: relative;
+    left: 43%;
+    background-color: red;
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 10px;
+    
+}
+
+#btn:hover{
+  background-color: green;
+  cursor: pointer;
+}
+
+.head:hover{
+  background-color: orange;
+  transition: 1s;
+}
+
+.tail:hover{
+  background-color: yellowgreen;
+  transition: 1s;
+}
+
+audio{
+  display: none;
+}
