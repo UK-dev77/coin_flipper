@@ -1,105 +1,94 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body{
-  background-color: white;
+  background: radial-gradient(circle at top, #f5f5f5, #e0e0e0);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Coin container */
 .coin {
-  width: 25dvw;
-  height: 50dvh;
+  width: min(260px, 70vw);
+  height: min(260px, 70vw);
   position: relative;
-  left: 35%;
   transform-style: preserve-3d;
-  transition: transform 1.3s;
-  /* border: 1px solid black; */
-
+  transition: transform 1.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-.head, .tail{
-    position: absolute;
-    left: 20%;
-    top: 15%;
-    width: 15dvw;
-    height: 30dvh;
-    border: 1px solid black;
-    border-radius:50%;
-    /* text-align: center; */
-    font-size: xx-large;
-    background-color: aqua;
-    color: brown;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    backface-visibility: hidden;
-
+/* Coin faces */
+.head,
+.tail{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: bold;
+  backface-visibility: hidden;
+  box-shadow:
+    inset 0 0 20px rgba(255,255,255,0.6),
+    0 15px 30px rgba(0,0,0,0.25);
 }
 
+/* HEAD */
 .head {
-  background: red;
-  color: white;
+  background: linear-gradient(145deg, #ff4d4d, #b30000);
+  color: #fff;
 }
 
+/* TAIL */
 .tail {
-  background: yellow;
-  color: black;
+  background: linear-gradient(145deg, #ffd84d, #d4a000);
+  color: #222;
   transform: rotateY(180deg);
 }
 
-/* .head:hover{
-    background-color: red;
-    transition: 1s;
-} */
-
-/* .tail{
-    position: absolute;
-    width: 25dvw;
-    height: 50dvh;
-    left: 20%;
-    top: 15%;
-    border: 1px solid black;
-    border-radius:50%;
-    /* text-align: center; */
-    /* font-size: xx-large;
-    background-color: aqua;
-    color: brown;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    backface-visibility: hidden;
-    transform: rotateY('180deg');
-
-
-} */ 
-
-#btn{
-    width: 10dvw;
-    height: 5dvh;
-    position: relative;
-    left: 43%;
-    background-color: red;
-    color: white;
-    font-size: large;
-    font-weight: bolder;
-    border-radius: 20px;
-    border: none;
-    box-shadow: 10px;
-    
-}
-
-#btn:hover{
-  background-color: green;
-  cursor: pointer;
-}
-
+/* Hover polish (does NOT affect JS) */
 .head:hover{
-  background-color: orange;
-  transition: 1s;
+  filter: brightness(1.15);
+  transition: 0.5s;
 }
 
 .tail:hover{
-  background-color: yellowgreen;
-  transition: 1s;
+  filter: brightness(1.15);
+  transition: 0.5s;
 }
 
+/* Button */
+#btn{
+  margin-top: 30px;
+  padding: 12px 28px;
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  font-weight: bold;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff3b3b, #c40000);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s;
+}
+
+#btn:hover{
+  background: linear-gradient(135deg, #00c853, #009624);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+#btn:active{
+  transform: scale(0.96);
+}
+
+/* Audio hidden */
 audio{
   display: none;
 }
