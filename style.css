@@ -5,45 +5,21 @@
 }
 
 body{
-  background:
-    radial-gradient(circle at top, #fafafa, #dcdcdc);
+  background: radial-gradient(circle at top, #f5f5f5, #e0e0e0);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem; /* better spacing control */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-/* Coin wrapper for perspective (professional touch) */
-.coin-wrapper{
-  perspective: 1200px;
 }
 
 /* Coin container */
 .coin {
   width: min(260px, 70vw);
-  aspect-ratio: 1 / 1;
+  height: min(260px, 70vw);
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-/* Coin edge illusion */
-.coin::before{
-  content: "";
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  background: linear-gradient(
-    90deg,
-    #999,
-    #eee,
-    #999
-  );
-  transform: translateZ(-1px);
-  filter: blur(1px);
 }
 
 /* Coin faces */
@@ -56,11 +32,11 @@ body{
   justify-content: center;
   align-items: center;
   font-size: clamp(1.5rem, 4vw, 2.2rem);
-  font-weight: 700;
+  font-weight: bold;
   backface-visibility: hidden;
   box-shadow:
-    inset 0 0 18px rgba(255,255,255,0.5),
-    0 18px 35px rgba(0,0,0,0.35);
+    inset 0 0 20px rgba(255,255,255,0.6),
+    0 15px 30px rgba(0,0,0,0.25);
 }
 
 /* HEAD */
@@ -76,41 +52,40 @@ body{
   transform: rotateY(180deg);
 }
 
-/* Hover polish (JS safe) */
-.head:hover,
+/* Hover polish (does NOT affect JS) */
+.head:hover{
+  filter: brightness(1.15);
+  transition: 0.5s;
+}
+
 .tail:hover{
-  filter: brightness(1.12);
+  filter: brightness(1.15);
+  transition: 0.5s;
 }
 
 /* Button */
 #btn{
-  padding: 14px 34px;
+  margin-top: 30px;
+  padding: 12px 28px;
   font-size: clamp(1rem, 3vw, 1.2rem);
-  font-weight: 700;
+  font-weight: bold;
   border-radius: 999px;
   border: none;
   background: linear-gradient(135deg, #ff3b3b, #c40000);
   color: white;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s;
 }
 
 #btn:hover{
   background: linear-gradient(135deg, #00c853, #009624);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
 }
 
 #btn:active{
-  transform: scale(0.95);
-}
-
-/* Reduced motion support (professional standard) */
-@media (prefers-reduced-motion: reduce){
-  .coin{
-    transition: none;
-  }
+  transform: scale(0.96);
 }
 
 /* Audio hidden */
